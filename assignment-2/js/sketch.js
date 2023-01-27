@@ -1,5 +1,6 @@
     var x=100;
     var y=100;
+    var namex=850, namey=860;
     var sandox= 350;
     var sandoy= 300;
     var sando1x= 346;
@@ -28,20 +29,20 @@
     }
     function mouseMoved()
     {
-        x=mouseX;
-        y=mouseY;
-        console.log(mouseX);
-        console.log(mouseY);
+       
+        console.log(x);
+        console.log(y);
     }
     
     function draw()
     {
+        
         background(10,130,180)
         fill(360,360,360)
         circle(450,450,450)
         fill(240,248,255)
         circle(450,450,420)
-
+        
         fill(179,110,0)
         rect(sando1x,sando1y,200,150)
         fill(204,136,0)
@@ -62,5 +63,8 @@
         ellipse(carrot1x,carrot1y,20,100)
         ellipse(carrot2x,carrot2y,20,100)
         ellipse(carrot3x,carrot3y,20,100)
+        fill(0)
+        textSize(25)
+        text("Jacob Ferber",namex,namey)
     }
      
