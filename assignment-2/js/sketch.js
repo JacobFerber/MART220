@@ -1,6 +1,7 @@
     var x=100;
     var y=100;
-    var namex=850, namey=860;
+    var backgroundGREY=128;
+    var namex=700, namey=860;
     var sandox= 350;
     var sandoy= 300;
     var sando1x= 346;
@@ -11,7 +12,7 @@
     var applex= 575;
     var appley= 525;
     var stemx=575;
-    var stemy=520   ;
+    var stemy=520;
 
     var carrot1x= 320;
     var carrot1y= 525;
@@ -22,6 +23,12 @@
     var carrot3x=340;
     var carrot3y=525;
 
+    var redColor = 0;
+    var x = 100;
+    var y = 100;
+    var side = 50;
+
+
     function setup()
     {
         createCanvas(900,900)
@@ -30,14 +37,14 @@
     function mouseMoved()
     {
        
-        console.log(x);
-        console.log(y);
+        console.log(x)
+        console.log(y)
     }
     
     function draw()
     {
         
-        background(10,130,180)
+        background(backgroundGREY,backgroundGREY,backgroundGREY)
         fill(360,360,360)
         circle(450,450,450)
         fill(240,248,255)
@@ -47,7 +54,7 @@
         rect(sando1x,sando1y,200,150)
         fill(204,136,0)
         rect(sandox,sandoy,200,150)
-        fill(0,153,25)
+        fill(redColor,153,25)
         triangle(480,325,350,375,325,325)
         fill(255,25,25)
         circle(tomatox,tomatoy,125)
@@ -66,5 +73,18 @@
         fill(0)
         textSize(25)
         text("Jacob Ferber",namex,namey)
+
+        fill(redColor,100,29);
+        rect(x,y,side);
+
+        if(redColor > 255)
+        {
+            redColor = 0;
+        }
+        else
+        {
+            redColor++;
+        }
+   
     }
      
