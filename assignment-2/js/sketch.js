@@ -46,11 +46,15 @@
         carrot1x = random(100+320)
         carrot2x = random(100+300)
         carrot3x = random(100+340)
+        
+    }
+    function mouseClicked()
+    {
         applex = random(900)
         appley = random(900)
     }
     function mouseMoved()
-    {
+        {
        //event handling changes the color of the background and text
         console.log(x)
         console.log(y)
