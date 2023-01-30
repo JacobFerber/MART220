@@ -46,7 +46,8 @@
         carrot1x = random(100+320)
         carrot2x = random(100+300)
         carrot3x = random(100+340)
-
+        applex = random(900)
+        appley = random(900)
     }
     function mouseMoved()
     {
@@ -147,7 +148,7 @@
         fill(179,0,0)
         circle(applex,appley,100)
         fill(9,51,0)
-        rect(stemx,stemy,8,20)
+        rect(applex,appley,8,20)
         
         fill(255,166,77)
         ellipse(carrot1x,carrot1y,20,100)
