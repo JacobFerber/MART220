@@ -9,9 +9,8 @@ function setup() {
 }
 function preload()
 {
-    img1 =loadimage('images/image1.jpg');
-    img2 =loadimage('images/image2.jpg');
-    img3 =loadimage('images/image3.jpg');
+    img1 =loadimage('/assignment-3/');
+  
     createCanvas(256, 256)
 }
 
