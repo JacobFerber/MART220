@@ -1,44 +1,73 @@
 var img1;
 var img2;
 var img3;
-var timerValue = 10;
+let firstFont;
+let secondFont;
+var timerValue = 750;
+var imgx = 0;
+var y=300;
+var x=300;
 
 function preload()
 {
     img1 = loadImage('./assets/image1.jpg');
     img2 = loadImage('./assets/image2.jpg');
     img3 = loadImage('./assets/image3.jpg');
+    firstFont = loadFont('./fonts/pixelart.ttf');
+    secondFont = loadFont('./fonts/PixelBit-Free.ttf');
 
 }
 function setup()
 {
     
-    createCanvas(250,250);
+    createCanvas(300,300);
 }
 function draw()
 {
-    cassens();
-    background(img1);
     timeIt();
-}
-function cassens()
-{
-    console.log(timerValue)
+    if(timerValue >= 300){
+      image (img1,imgx,(0));
+    }
+    if(timerValue <= 499){
+      image(img2,imgx-300,0)
+    }
+    if(timerValue <= 200){
+      image(img3,imgx-590,0);
+    }
+    imgx++
+    
+    if(timerValue >= 500){
+      fill('#ed225d');
+      textFont(firstFont);
+      textSize(20);
+      text('Scrolling Fruit',0,150);
+    }
 
-background();
-  if (timerValue >= 1000) {
-    Image(img1);
-  }
-  if (timerValue < 1000) {
-    Image(img2 );
-  }
-  if (timerValue == 0) {
-    Image('game over', width / 2, height / 2 + 15);
-  }
-}
+    if(timerValue < 100 ){
+      fill('#ed225d');
+      textFont(firstFont);
+      textSize(25);
+      text('By',50,150)
+      text('Jacob Ferber',x,y)
+      y--;
+      x--;
+    }
 
-function timeIt() {
-  if (timerValue > 0) {
+    if(timerValue <= 1){
+      fill('#22ed58');
+      textFont(secondFont);
+      textSize(35);
+      text('Scrolling ',125,50);
+      text('Fruit ',150,250);
+      fill('#3a22ed');
+      text('Jacob Ferber,',100,150)
+    }
+    console.log(draw)
+}
+function timeIt(){
+  if (timerValue > 0){
     timerValue--;
   }
+
+  
 }
