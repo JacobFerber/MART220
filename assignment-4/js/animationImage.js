@@ -1,22 +1,36 @@
-class animationImages
+class foodClass
 {
-    constructor(fileName, x, y, w, h)
+    
+    constructor(redColor,greenColor,blueColor,x,y,x2,y2)
     {
-        this.fileName = fileName;
-        this.x = 100; 
-        this.y = 1820;
-        this.w = 515;
-        this.h = 2327;
-        this.animationImages = this.loadAnimation();
+        this.redColor = redColor;
+        this.greenColor = greenColor;
+        this.blueColor = blueColor; 
+        this.x = x;
+        this.y = y;
+        this.x2 = x2;
+        this.y2 = y2;
+        
     }
-
-    loadAnimation()
+    
+    drawsq()
     {
-        return loadImage(this.fileName);
+    fill(this.redColor, this.greenColor, this.blueColor)
+    rect(this.x,this.y,this.x2,this.y2)
     }
-
-    drawAnimation()
-    {
-        image(this.fileName, this.x, this.y, this.w, this.h);
+}
+var foodArray = [];
+foodArray[1] = rect1 = new foodClass(100,100,250,200,200,200,200);
+foodArray[2] = rect2 = new foodClass(100,100,250,200,200,200,200);
+function setup()
+{
+    createCanvas(640,480);
+}
+function draw()
+{
+    background(120);
+    for(var i = 0; i < foodArray.length; i++)
+    {   
+    foodArray[i].drawsq();
     }
 }
