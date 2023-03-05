@@ -13,24 +13,26 @@ class foodClass
         
     }
     
-    drawsq()
+    draw()
     {
     fill(this.redColor, this.greenColor, this.blueColor)
     rect(this.x,this.y,this.x2,this.y2)
     }
 }
 var foodArray = [];
-foodArray[1] = rect1 = new foodClass(100,100,250,200,200,200,200);
-foodArray[2] = rect2 = new foodClass(100,100,250,200,200,200,200);
+
 function setup()
 {
     createCanvas(640,480);
+    for(var i = 0; i < 5; i++){
+    foodArray[i] = new foodClass(100,100,250,200,200,200,200);
+    }
 }
 function draw()
 {
     background(120);
     for(var i = 0; i < foodArray.length; i++)
     {   
-    foodArray[i].drawsq();
+    foodArray[i].draw();
     }
 }
