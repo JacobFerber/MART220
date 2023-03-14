@@ -18,15 +18,15 @@ function preload(){
 function setup(){
     createCanvas(640,480);
     characterObject = new characterClass(images);
-    for(var i =0; i <500;i++ )
-    {
-    myFood = new foodClass(50,50,50,50);
-    foods[i] = myFood;
-    }
+    //for(var i =0; i <500;i++ )
+    //{
+   // myFood = new foodClass(50,50,50,50);
+   // foods[i] = myFood;
+   // }
 
     
 
-    characterObject.animate();
+    
   
 
 }

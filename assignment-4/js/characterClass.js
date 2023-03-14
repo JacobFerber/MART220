@@ -5,19 +5,21 @@ class characterClass
     {
         this.images = images;
         this.characterImages = [];
+
+        for (var i = 0; i < images.length; i++) {
+            console.log(this.images[i]);
+            
+            this.characterImages[i] = loadImage(this.images[i]);
+        }
     }
     
-    draw()
+    draw(frame)
     {   //this is what this.characterImages.length would reference
-        image(this.characterImages[i],300,150,386,456);
+        image(this.characterImages[frame],300,150,386,456);
     }
     animate()
     {   
         //consoloe.log(this.imageLinks)
-        for (var j = 0; j < images.length; j++) {
-            console.log(this.images[j]);
-            person = loadImage(this.images[j]);
-            this.characterImages[j] = person;
-        }
+       
     }
 }

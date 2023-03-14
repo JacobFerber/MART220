@@ -25,7 +25,7 @@ function setup()
 {
     createCanvas(640,480);
     for(var i = 0; i < 5; i++){
-    foodArray[i] = new foodClass(100,100,250,200,200,200,200);
+    foodArray[i] = new foodClass(200,200,250,200,200,200,200);
     }
 }
 function draw()
