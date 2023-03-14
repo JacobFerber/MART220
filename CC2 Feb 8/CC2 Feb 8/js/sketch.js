@@ -22,9 +22,9 @@ var teganObject;
 
 function preload() {
     // load image
-    catImage = loadImage("../images/cat.jpg");
-    idleAnimation = loadStrings("../assets/Idle.txt");
-    myFont = loadFont("../fonts/Pixelfy.ttf");
+    catImage = loadImage("/CC2 Feb 8/CC2 Feb 8/images/cat.jpg");
+    idleAnimation = loadStrings("/CC2 Feb 8/CC2 Feb 8/images/idle.txt");
+    myFont = loadFont("/CC2 Feb 8/CC2 Feb 8/fonts/Pixelfy.ttf");
 }
 /*
     this function sets everything up
