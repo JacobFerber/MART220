@@ -12,7 +12,7 @@ var firstFont;
 
 function preload(){
 
- images = loadStrings("/assignment-4/assets/Idle.txt");
+ images = loadStrings("./assets/Idle.txt");
  
 }
 function setup(){
