@@ -24,7 +24,7 @@ function setup(){
    // foods[i] = myFood;
    // }
 
-    
+    for(var i=0; i <500)
 
     
   
