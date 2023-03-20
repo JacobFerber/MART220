@@ -50,7 +50,10 @@ function setup() {
 
 function draw() {
     background(120);
-
+    for( var i = 0; i <circles.length;i ++)
+    {
+        circles[i].drawCircle();
+    }
    // image(character[i], 300, 100, 145, 250); // display image
     teganObject.draw(i);
     image(catImage, catX, 50, 200, 200); // display image

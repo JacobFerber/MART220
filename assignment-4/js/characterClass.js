@@ -15,11 +15,7 @@ class characterClass
     
     draw(frame)
     {   //this is what this.characterImages.length would reference
-        image(this.characterImages[frame],300,150,386,456);
+        image(this.characterImages[frame],150,0,386,456);
     }
-    animate()
-    {   
-        //consoloe.log(this.imageLinks)
-       
-    }
+   
 }
