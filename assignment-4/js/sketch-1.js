@@ -58,7 +58,7 @@ function draw() {
   // {
   //  foods[i].draw();
  //  }
- 
+
 }
 function timeIt(){
   if (timerValue > 0){

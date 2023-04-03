@@ -46,14 +46,12 @@ function setup() {
         mycircle = new MyCircle(random(10, width), random(20, height), random(5, 150)); // automatically calls constructor
         circles[i] = mycircle;
     }
+    
 }
 
 function draw() {
     background(120);
-    for( var i = 0; i <circles.length;i ++)
-    {
-        circles[i].drawCircle();
-    }
+    
    // image(character[i], 300, 100, 145, 250); // display image
     teganObject.draw(i);
     image(catImage, catX, 50, 200, 200); // display image
@@ -69,6 +67,7 @@ function draw() {
     textSize(64);
     fill(0);
     text("hello", 500, 400);
+    
 }
 
 function moveSquares() {
@@ -84,11 +83,13 @@ function movement() {
         squareXChange *= -1;
     }
     circleX += squareXChange;
+    
 
 }
 // created a function
 function createCircle() {
     circle(circleX, 100, circleR);
+    
 }
 
 function createSquare(x, y, w) {
@@ -98,6 +99,11 @@ function createSquare(x, y, w) {
 function drawCounter() {
     textSize(50);
     text(counter, 450, 350);
+    for( var i = 0; i <circles.length;i ++)
+    {
+        circles[i].drawCircle();
+    }
+    
 }
 function displayCounter() {
     counter++;
@@ -106,6 +112,6 @@ function displayCounter() {
     if (i > 9) {
         i = 0;
     }
-
+    
 }
 
