@@ -6,7 +6,7 @@ function preload () {
  soundFormats("WAV");
  successSound = loadSound("./assets/success");
  failureSound = loadSound("./assets/failure");
- 
+ backgroundSound = loadSound('./assets/background')
 }
 
 
@@ -19,7 +19,7 @@ function draw () {
     background (220)
 
     var r1 = new rectClass(100,100,210,40);
-    var r2 = new rectClass(300,120,30,30);
+    var r2 = new rectClass(700,120,30,30);
 
     r1.draw();
     r2.draw();
@@ -39,21 +39,7 @@ function areRectanglesColliding(r1, r2){
     var bottomEdge2 = r2.getY();   
     
     if( leftEdge1 < rightEdge2 && rightEdge1 > leftEdge2 && bottomEdge1 < topEdge2 && topEdge1 > bottomEdge2){
-        return true; 
-   }
-   return false;
-}
-
-function backgroundMusic() {
-    successSound.play(); //starts song
-    successSound.loop(); //loops song at the end
-    successSound.setVolume(0.3);
-    userStartAudio(); //enable audio once user interacts with the audio
-}
-
-function mousePressed() {
-    
-    if(failureSound.isPlaying())
+        if(failureSound.isPlaying())
     {
       failureSound.pause();
     }
@@ -61,5 +47,23 @@ function mousePressed() {
     {
       failureSound.play();
     }
+   }
+   successSound.play(); //starts song
+   //successSound.loop(); //loops song at the end
+   successSound.setVolume(0.3);
+   successSound.stop([100000])
+   
+}
+
+function backgroundMusic() {
+    backgroundSound.play(); //starts song
+    backgroundSound.loop(); //loops song at the end
+    backgroundSound.setVolume(0.3);
+    userStartAudio(); //enable audio once user interacts with the audio
+}
+
+function mousePressed() {
+    
+    
     //pasuse
   }
