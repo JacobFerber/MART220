@@ -1,11 +1,13 @@
 var idlePaths = [];
+var runPaths = [];
 let myAnimation;
 
 
 function preload()
 {
     idlePaths = loadStrings("./assets/Idle/Idle.txt");
-    myAnimation = new animationClass(200,200,380,486);
+    runPaths = loadStrings("./assets/Run/Run.txt");
+    myAnimation = new animationClass(100,100,100,800);
     
 }
 
@@ -13,14 +15,15 @@ function setup()
 {
     createCanvas(1000,800)
 
-     myAnimation.loadAnimation('Idle', idlePaths);
+    myAnimation.loadAnimation('Idle', idlePaths);
+    myAnimation.loadAnimation('Run', runPaths)
     // faster way to add an image
-    treasureImage = createSprite(450,300,100,100,'static');
+    treasureImage = createSprite(500,200,900,300,'static');
     treasureImage.img = "./assets/treasure.jpeg"
     //hitbox related
-    treasureImage.scale = 0.35;
+    treasureImage.scale = 0.45;
     //hitbox
-    treasureImage.diameter = 150;
+    treasureImage.diameter = 300;
 
 }
 
@@ -30,21 +33,27 @@ function draw()
     if(kb.pressing('d'))
     {
         myAnimation.updatePosition('forward');
-        myAnimation.drawAnimation('run');
+        myAnimation.drawAnimation('Run');
         if(myAnimation.isColliding(treasureImage)){
-            myAnimation.drawAnimation('idle');
-            myAnimation.updatePosition('idle')
-        }
+            myAnimation.drawAnimation('Idle');
+            myAnimation.updatePosition('Idle')
+       }
     }    
     else if(kb.pressing('a'))
     {
         myAnimation.updatePosition('reverse');
-        myAnimation.drawAnimation('run')
+        myAnimation.drawAnimation('Run')
         if(myAnimation.isColliding(treasureImage)){
-            myAnimation.drawAnimation('run');
-            myAnimation.updatePosition('run')
+            myAnimation.drawAnimation('Idle');
+            myAnimation.updatePosition('Idle')
         }
     }
+        else
+        {
+            myAnimation.drawAnimation('Idle');
+        }
+        treasureImage.debug = mouseIsPressed;
+    
     
 
  //   myAnimation.updatePosition('idle');

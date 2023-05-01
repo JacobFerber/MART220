@@ -9,17 +9,19 @@ class animationClass{
         this.i=0
         this.currentFrameCount = 0;
         this.direction = "";
-        ;
+        this.createAnimation();
+        this.currentAnimation;
+       // this.changeAnimation;
         //this.frameDelay=0;
 
     }
     createAnimation()
     {
-         this.currentAnimation = createSprite(300, 250);
+         this.currentAnimation = createSprite(100, 150);
     }
     updatePosition(direction)
     {
-        this.direction = direction
+        this.direction = direction;
         /* old update position
 
         this.direction = direction;
@@ -81,7 +83,8 @@ class animationClass{
        return false; 
     }*/
     isColliding(myImage){
-        return this.currentAnimation.collide(myImage)
+        return this.currentAnimation.collide(myImage);
+        
     }
     
     setCurrentFrameCount(currentFrameCount){
@@ -92,23 +95,24 @@ class animationClass{
 
 loadAnimation(animationType,fileNames)
 { 
+    
     this.currentAnimation.addAnimation(animationType,fileNames[0], fileNames[fileNames.length-1]);
-    this.currentAnimation.width = 355;
-    this.currentAnimation.height = 486;
+    this.currentAnimation.width = 100;
+    this.currentAnimation.height = 100;
 }
    
     drawAnimation(animationType) {
         
         this.currentAnimation.frameDelay = 5;
-        this.currentAnimation.scale = .5;
+        this.currentAnimation.scale = .25;
         this.currentAnimation.changeAnimation(animationType);
-        if (animationType == 'run' && this.direction == 'forward') {
+        if (animationType == 'Run' && this.direction == 'forward') {
             this.currentAnimation.direction = 0;
             this.currentAnimation.mirror.x = false;
             this.currentAnimation.speed = 1;
 
         }
-        else if (animationType == 'run' && this.direction == 'reverse') {
+        else if (animationType == 'Run' && this.direction == 'reverse') {
 
             this.currentAnimation.mirror.x = true;
             this.currentAnimation.direction = 180;
@@ -121,7 +125,17 @@ loadAnimation(animationType,fileNames)
 
 
     }
-/*
+   /* changeAnimation()
+    {
+        if(this.currentAnimation = 'idle'){
+            return this.currentAnimation = 'run'; 
+        }
+        else{
+            return this.currentAnimation = 'idle';
+        }
+
+    }
+/*  
     incrementIndex() {
        
         if(this.currentFrameCount % 5 == 0)
