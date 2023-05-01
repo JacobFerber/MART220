@@ -1,69 +1,124 @@
-var myAnimation;
-var myFood;
-var images = [];
+
+var idlePaths = [];
+var runPaths = [];
 var foods = [];
+
 var characterObject;
 var foodObject;
 
+var animation = [];
+var runAnimation = [];
+var index =0;
 var i = 0;
-var timeIt=1;
-var timerValue =0;
+var j =0;
+
+var x=50;
+var y=50;
+var w=100;
+var h=100;
 
 var secondFont;
 var firstFont;
 
 function preload(){
+//load strings brings in the file paths which asigns all the strings into the idlePaths array
+ idlePaths = loadStrings("./assets/Idle/Idle.txt");
+ runPaths = loadStrings('./assets/Run/Run.txt')
 
- images = loadStrings("./assets/Idle.txt");
  
 }
 function setup(){
     createCanvas(640,480);
+    //moves through the length of the idlePath
+    for(var i =0; i <idlePaths.length; i++)
+    {
+    characterObject = new characterClass(idlePaths[i],50,50,50,50);
+    animation[i] = characterObject;
+    }
     
-    characterObject = new characterClass(images);
+    for( i=0; i <runPaths.length; i++)
+    {
+      characterObject = new characterClass(runPaths[i],50,50,50,50);
+      runAnimation[i] = characterObject;    
+    }
     
- //   for(var i =0; i <500;i++ )
- //   {
-  //  myFood = new foodClass(50,50,50,50);
- //   foods[i] = myFood;
-  //  }
-  for (var i = 0; i < 50; i++) {
-    foodObject = new foodClass(x,y,w,h); // automatically calls constructor
-    foods[i] = foodObject;
-}
+    setInterval(increaseIdleIndex, 50)
+  //  setInterval(increaseRunIndex, 50)
+    foodObject = new foodClass(x,y,w,h); // automatically calls constructor\
     
-
-    
-  
-
 }
 function draw() {
-    
     background(120);
-    for( var i = 0; i <foods.length;i ++)
-    {
-        foods[i].drawCircle();
-    }
-    characterObject.draw(frameCount);
- 
-    if(frameCount >= 9){
-      frameCount = 0;
-    }
-    else{
-      frameCount++;
-    }
-
     
-   // for(var i= 0;i < foods.length;i++ )
-  // {
-  //  foods[i].draw();
- //  }
+    foodObject.drawCircle();
+    if(keyIsPressed)
+    {
+      if(key == "d")
+      {
+        console.log(foodObject.x)
+        for(let i = 0; i < runAnimation.length; i++) {
+        runAnimation[i].updatePosition('forward');
+        animation[i].updatePosition('forward');
+        }
+        runAnimation[i].draw();
+      }
+      else if(key =="a")
+      {
+        for(let i = 0; i < runAnimation.length; i++) {
+        runAnimation[i].updatePosition('reverse');
+        animation[i].updatePosition('reverse');
+        }
+        runAnimation[i].draw();
+      }
+      else if(key =="s")
+      {
+        for(let i = 0; i < runAnimation.length; i++) {
+        runAnimation[i].updatePosition('down');
+        animation[i].updatePosition('down');
+        }
+        runAnimation[i].draw();
+      }
+      else if(key =="w")
+      {
+        for(let i = 0; i < runAnimation.length; i++) {
+        runAnimation[i].updatePosition('up');
+        animation[i].updatePosition('up');
+        }
+        runAnimation[i].draw();
+      }
+      else 
+      { 
+        animation[i].draw();
+        animation[i].updatePosition('idle');
 
+      }
+    }
+    else
+    { 
+
+    console.log(animation.length);
+      animation[i].draw();
+   }
 }
-function timeIt(){
-  if (timerValue > 0){
-    timerValue--;
-  }
 
+
+function increaseIdleIndex(){
+  
+  i++
+  if (i >= animation.length -1)
+  {
+
+    i=0;
+  }
+  
+}
+function increaseRunIndex(){
+  
+j++
+  if (j >= runAnimation.length -1)
+  {
+
+    j=0;
+  }
 
 }

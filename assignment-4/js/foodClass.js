@@ -7,8 +7,8 @@ class foodClass
 
       this.x = x;
       this.y = y;
-      this.w;
-      this.h;
+      this.w = w; 
+      this.h = h;
 
   }
   
@@ -16,7 +16,7 @@ class foodClass
   drawCircle()
   {
       
-    fill(12,132,423)
-    rect(this.x,this,y,this,w,this.h)
+    fill(12,132,33);
+    rect(this.x,this.y,this.w,this.h);
   }
 }
