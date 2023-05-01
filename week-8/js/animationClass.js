@@ -92,14 +92,11 @@ class animationClass{
 
 loadAnimation(animationType,fileNames)
 { 
-    this.currentAnimation.addAnis(animationType,fileNames[0], fileNames[fileNames.length-1]);
+    this.currentAnimation.addAnimation(animationType,fileNames[0], fileNames[fileNames.length-1]);
     this.currentAnimation.width = 355;
     this.currentAnimation.height = 486;
 }
-    loadAnimtion(){
-        this.currentAnimation = loadAnimation(this.fileNames[0], this.fileNames[this.fileNames.length-1]);   
-
-    }
+   
     drawAnimation(animationType) {
         
         this.currentAnimation.frameDelay = 5;

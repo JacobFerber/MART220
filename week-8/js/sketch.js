@@ -1,18 +1,19 @@
 var idlePaths = [];
-var myAnimation;
+let myAnimation;
 
 
 function preload()
 {
     idlePaths = loadStrings("./assets/Idle/Idle.txt");
+    myAnimation = new animationClass(200,200,380,486);
+    
 }
 
 function setup()
 {
     createCanvas(1000,800)
 
-    myAnimation = new animationClass(200,200,380,486);
-    myAnimation.loadAnimation('Idle', idlePaths);
+     myAnimation.loadAnimation('Idle', idlePaths);
     // faster way to add an image
     treasureImage = createSprite(450,300,100,100,'static');
     treasureImage.img = "./assets/treasure.jpeg"
