@@ -19,6 +19,9 @@ class animationClass{
     }
     updatePosition(direction)
     {
+        this.direction = direction
+        /* old update position
+
         this.direction = direction;
         if(direction == "forward")
         {
@@ -38,8 +41,9 @@ class animationClass{
         }else if(direction == "up")
         {
             this.y -= 10;
-
         }
+            */
+        
     }
     getX()
     {  
@@ -57,10 +61,11 @@ class animationClass{
     {
         return this.h;
     }
-    isRectanglesColliding(r2){
-        return collideRectRect(this.x, this.y, this.w, this.h ,r2.getX(), r2.getY(), r2.getW(), r2.getH());
+    
+    /*isRectanglesColliding(r2){
+        if collideRectRect(this.x, this.y, this.w, this.h ,r2.getX(), r2.getY(), r2.getW(), r2.getH()){
 
-       /* var topEdge1 = this.y + this.h;
+       var topEdge1 = this.y + this.h;
         var rightEdge1 = this.x + this.w; 
         var leftEdge1 = this.x;
         var bottomEdge1 = this.y;
@@ -68,12 +73,15 @@ class animationClass{
         var rightEdge2 = r2.getX() + r2.getW(); 
         var leftEdge2 = r2.getX();
         var bottomEdge2 = r2.getY();   
-        
+        }
         if( leftEdge1 < rightEdge2 && rightEdge1 > leftEdge2 && bottomEdge1 < topEdge2 && topEdge1 > bottomEdge2){
     
          return true;
         }
-       return false; */
+       return false; 
+    }*/
+    isColliding(myImage){
+        return this.currentAnimation.collide(myImage)
     }
     
     setCurrentFrameCount(currentFrameCount){
@@ -82,10 +90,11 @@ class animationClass{
     
 
 
-loadAnimation(fileNames,animationType)
+loadAnimation(animationType,fileNames)
 { 
-    this.currentAnimation.addAnimation(animationType,fileNames[0], fileNames[fileNames.length-1]);
-       
+    this.currentAnimation.addAnis(animationType,fileNames[0], fileNames[fileNames.length-1]);
+    this.currentAnimation.width = 355;
+    this.currentAnimation.height = 486;
 }
     loadAnimtion(){
         this.currentAnimation = loadAnimation(this.fileNames[0], this.fileNames[this.fileNames.length-1]);   
@@ -96,13 +105,13 @@ loadAnimation(fileNames,animationType)
         this.currentAnimation.frameDelay = 5;
         this.currentAnimation.scale = .5;
         this.currentAnimation.changeAnimation(animationType);
-        if (animationType == 'walk' && this.direction == 'forward') {
+        if (animationType == 'run' && this.direction == 'forward') {
             this.currentAnimation.direction = 0;
             this.currentAnimation.mirror.x = false;
             this.currentAnimation.speed = 1;
 
         }
-        else if (animationType == 'walk' && this.direction == 'reverse') {
+        else if (animationType == 'run' && this.direction == 'reverse') {
 
             this.currentAnimation.mirror.x = true;
             this.currentAnimation.direction = 180;
@@ -115,7 +124,7 @@ loadAnimation(fileNames,animationType)
 
 
     }
-
+/*
     incrementIndex() {
        
         if(this.currentFrameCount % 5 == 0)
@@ -127,4 +136,5 @@ loadAnimation(fileNames,animationType)
             this.i = 0;
         }
     }
+    */
 }
