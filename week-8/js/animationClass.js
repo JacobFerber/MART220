@@ -119,8 +119,23 @@ loadAnimation(animationType,fileNames)
             this.currentAnimation.speed = 1;
 
         }
+        else if (animationType == 'Run' && this.direction == 'up') {
+
+            this.currentAnimation.mirror.x = true;
+            this.currentAnimation.direction = 270;
+            this.currentAnimation.speed = 1;
+
+        }
+        else if (animationType == 'Run' && this.direction == 'down') {
+
+            this.currentAnimation.mirror.x = true;
+            this.currentAnimation.direction = 90;
+            this.currentAnimation.speed = 1;
+
+        }
         else {
             this.currentAnimation.velocity.x = 0;
+            this.currentAnimation.velocity.y = 0;
         }
 
 
